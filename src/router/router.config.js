@@ -1,9 +1,7 @@
-// eslint-disable-next-line
-import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/layouts'
-import { bxAnaalyse } from '@/core/icons'
+import { BasicLayout, UserLayout } from '@/layouts'
+import HomeRouter from './home.router'
 
 export const asyncRouterMap = [
-
   {
     path: '/',
     name: 'index',
@@ -11,21 +9,7 @@ export const asyncRouterMap = [
     meta: { title: '首页' },
     redirect: '/dashboard/analysis',
     children: [
-      {
-        path: 'dashboard',
-        name: 'dashboard',
-        redirect: '/dashboard/analysis',
-        component: RouteView,
-        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'super' ] },
-        children: [
-          {
-            path: 'analysis',
-            name: 'Analysis',
-            component: () => import('@/views/dashboard/Analysis'),
-            meta: { title: '分析页', keepAlive: false, permission: [ 'super' ] }
-          }
-        ]
-      }
+      ...HomeRouter
     ]
   },
   {
@@ -47,14 +31,13 @@ export const constantRouterMap = [
       {
         path: 'login',
         name: 'login',
-        component: () => import('@/views/Login')
+        component: () => import(/* webpackChunkName: "user" */ '@/views/Login')
       }
     ]
   },
 
   {
     path: '/404',
-    component: () => import('@/views/exception/404')
+    component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
   }
-
 ]

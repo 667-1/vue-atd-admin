@@ -1,10 +1,6 @@
-
 /* eslint-disable */
 /**
- * 该文件是为了按需加载，剔除掉了一些不需要的框架组件。
- * 减少了编译支持库包大小
- *
- * 当需要更多组件依赖时，在该文件加入即可
+ * 按需加载框架组件。
  */
 import Vue from 'vue'
 import {
@@ -18,7 +14,7 @@ import {
   Checkbox,
   Select,
   Card,
-  Form,
+  FormModel,
   Row,
   Col,
   Modal,
@@ -60,7 +56,7 @@ Vue.use(Radio)
 Vue.use(Checkbox)
 Vue.use(Select)
 Vue.use(Card)
-Vue.use(Form)
+Vue.use(FormModel)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Modal)

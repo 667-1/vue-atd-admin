@@ -81,6 +81,9 @@ export default {
         routes.pop()
         this.selectedKeys = [routes[routes.length - 1].path]
       } else {
+        // console.log(routes.pop())
+        // const array = []
+        // if (routes.pop().redirect) array.push(routes.pop().redirect)
         this.selectedKeys = [routes.pop().path]
       }
       const openKeys = []
@@ -101,6 +104,7 @@ export default {
       return null
     },
     renderMenuItem (menu) {
+      // console.log(menu.children && menu.children[0])
       const target = menu.meta.target || null
       const CustomTag = target && 'a' || 'router-link'
       const props = { to: { name: menu.name } }
